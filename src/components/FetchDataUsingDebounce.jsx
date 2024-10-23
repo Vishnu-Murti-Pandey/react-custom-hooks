@@ -6,7 +6,7 @@ const FetchDataUsingDebounce = () => {
   const debouncedSearchData = useDebounce(searchData, 1000);
 
   useEffect(() => {
-    if(debouncedSearchData) {
+    if (debouncedSearchData) {
       console.log("Hit api");
     }
   }, [debouncedSearchData]);
@@ -16,13 +16,15 @@ const FetchDataUsingDebounce = () => {
   };
 
   return (
-    <input
-      type="text"
-      value={searchData}
-      onChange={(e) => handleSearch(e)}
-      placeholder="Search..."
-      style={{ margin: "20px" }}
-    />
+    <>
+      <input
+        type="text"
+        value={searchData}
+        onChange={(e) => handleSearch(e)}
+        placeholder="Search..."
+      />
+      <p>Debounced Input: {debouncedSearchData}</p>
+    </>
   );
 };
 
